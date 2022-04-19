@@ -1,0 +1,22 @@
+# Example:
+# oc process -f templates/configuration.yaml \
+#    -p NAME=ibm-ace-server.jks \
+#    -p TYPE=keystore \
+#    -p CONTENTS=$(base64 -w 0 ibm-ace-server.jks) | oc apply -f -
+
+apiVersion: v1
+kind: Template
+metadata:
+  name: Configuration
+objects:
+  - apiVersion: appconnect.ibm.com/v1beta1
+    kind: Configuration
+    metadata:
+      name: ${NAME}
+    spec:
+      type: ${TYPE}
+      contents: ${CONTENTS}
+parameters:
+  - name: NAME
+  - name: TYPE
+  - name: CONTENTS
