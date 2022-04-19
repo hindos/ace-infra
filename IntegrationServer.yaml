@@ -9,7 +9,7 @@ spec:
     license: L-APEH-BPUCJK
     use: CloudPakForIntegrationNonProduction
   tracing:
-    enabled: ${TRACING_ENABLED}
+    enabled: false
     namespace: ${TRACING_NS}
   replicas: 1
   router:
